@@ -6,19 +6,21 @@
 #include <iostream>
 #include <string>
 
-
-Subject::Subject(std::string name)
+template<typename T>
+Subject<T>::Subject(std::string name)
 {
     name = name;
     _state = {};
 };
 
-void Subject::attach(const Observer &o) {
+template<typename T>
+void Subject<T>::attach(const Observer &o) {
     std::cout << "Subject adding an observer\n";
     _observers.push_back(o);
 }
 
-void Subject::detach(Observer &o) {
+template<typename T>
+void Subject<T>::detach(Observer &o) {
     std::cout << "Subject removing observer";
     for (const auto& obs : _observers)
     {
@@ -26,10 +28,16 @@ void Subject::detach(Observer &o) {
     }
 }
 
-void Subject::notify() {
+template<typename T>
+void Subject<T>::notify() {
     for (Observer obs : _observers)
     {
         std::cout << "Notifying ...\n";
         obs.update(*this);
     }
+}
+
+template<typename T>
+void Subject<T>::update_state(std::string type, T data) {
+    // update the T with type
 }

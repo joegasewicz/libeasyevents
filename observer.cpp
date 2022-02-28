@@ -10,6 +10,7 @@ Observer::Observer(std::string name) {
     name = name;
 }
 
-void Observer::update(Subject &s) {
+void Observer::update(Subject<std::string> &s) {
     std::cout << "Observer: " << name << "receive update from: " << s.name << "\n";
+
 }

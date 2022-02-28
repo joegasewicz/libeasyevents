@@ -8,6 +8,7 @@
 #include "observer.h"
 #include <vector>
 
+template <typename T>
 class Subject {
 
 public:
@@ -21,11 +22,17 @@ public:
     void detach(Observer &o);
 
     void notify();
+
+    void update_state(std::string type, T data);
+
+
 private:
     int _state;
 
     std::vector<Observer> _observers = {};
 };
+
+
 
 
 #endif //TICKET_MANAGER_SUBJECT_H

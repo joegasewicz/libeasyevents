@@ -8,7 +8,7 @@
 #define TICKET_MANAGER_OBSERVER_H
 
 #include <iostream>
-
+template<typename T>
 class Subject;
 
 class Observer {
@@ -16,7 +16,7 @@ class Observer {
 public:
     explicit Observer(std::string name);
     std::string type;
-    virtual void update(Subject &s);
+    virtual void update(Subject<std::string> &s);
     std::string name;
 };
 
